@@ -26,6 +26,7 @@ Although it's suggested to keep these settings at their default, you may change 
 * ze_ztimer_max <seconds> "Maximum time from the start of the round until picking the mother zombie(s)."
 * ze_zhealth_min <number>
 * ze_zhealth_max <number>
+* ze_zhealth_regen <0/1> "Whether zombie health should regenerate over time or not."
 * ze_ammo <number> "Amount of ammo to give humans."
 * ze_buyzone <0/1> "Whether or not players may purchase weapons only in a buyzone."
 * ze_human_speed <number>
