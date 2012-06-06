@@ -46,6 +46,10 @@ end
 
 function GM:PlayerInitialSpawn(ply)
 	ply:GoTeam(TEAM_SPECTATOR)
+
+	if self:HasRoundStarted() then
+		ply:SendMessage("Press F3 to begin playing as a zombie.")
+	end
 end
 
 function GM:PlayerDisconnected(ply)

@@ -198,3 +198,7 @@ function GM:SendWinner( TeamId, bReset )
 		umsg.Bool(bReset)
 	umsg.End()
 end
+
+function GM:HasRoundStarted()
+	return !self.Restarting and self.RoundStarted 
+end
