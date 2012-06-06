@@ -1,7 +1,8 @@
-GM.CVars.ZSpeed = CreateConVar( "ze_zombie_speed", 250, {FCVAR_REPLICATED}, "" )
-GM.CVars.ZHealthMin = CreateConVar( "ze_zhealth_min", 3200, {FCVAR_REPLICATED}, "" )
-GM.CVars.ZHealthMax = CreateConVar( "ze_zhealth_max", 4300, {FCVAR_REPLICATED}, "" )
-GM.CVars.ZombieRatio = CreateConVar( "ze_zombie_ratio", 7, {FCVAR_REPLICATED}, "" )
+GM.CVars.ZSpeed 		= CreateConVar( "ze_zombie_speed", 250, {FCVAR_REPLICATED}, "Zombie walk and run speed." )
+GM.CVars.ZHealthMin 	= CreateConVar( "ze_zhealth_min", 3200, {FCVAR_REPLICATED}, "Minumum health for a zombie to receive." )
+GM.CVars.ZHealthMax 	= CreateConVar( "ze_zhealth_max", 4300, {FCVAR_REPLICATED}, "Maximum health for a zombie to receive." )
+GM.CVars.ZKnockback		= CreateConVar( "ze_zknockback", '3.4', {FCVAR_REPLICATED}, "Knockback multiplier for zombies." )
+GM.CVars.ZombieRatio 	= CreateConVar( "ze_zombie_ratio", 7, {FCVAR_REPLICATED}, "Ratio of zombies to spawn." )
 
 function GM:ZombieSpawn( ply )
 
@@ -31,7 +32,7 @@ function GM:ZombieSpawn( ply )
 	
 	ply.NextHealthRegen = CurTime() + 5
 	ply.NextMoan = CurTime() + math.random(25,45)
-	ply.KnockbackMultiplier = 4.0
+	ply.KnockbackMultiplier = self.CVars.ZKnockback:GetFloat()
 
 end
 
