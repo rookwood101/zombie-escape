@@ -1,8 +1,9 @@
 GM.CVars.ZSpeed 		= CreateConVar( "ze_zombie_speed", 250, {FCVAR_REPLICATED}, "Zombie walk and run speed." )
-GM.CVars.ZHealthMin 	= CreateConVar( "ze_zhealth_min", 3200, {FCVAR_REPLICATED}, "Minumum health for a zombie to receive." )
-GM.CVars.ZHealthMax 	= CreateConVar( "ze_zhealth_max", 4300, {FCVAR_REPLICATED}, "Maximum health for a zombie to receive." )
-GM.CVars.ZKnockback		= CreateConVar( "ze_zknockback", '3.4', {FCVAR_REPLICATED}, "Knockback multiplier for zombies." )
+GM.CVars.ZHealthMin 	= CreateConVar( "ze_zhealth_min", 3000, {FCVAR_REPLICATED}, "Minumum health for a zombie to receive." )
+GM.CVars.ZHealthMax 	= CreateConVar( "ze_zhealth_max", 3500, {FCVAR_REPLICATED}, "Maximum health for a zombie to receive." )
+GM.CVars.ZKnockback		= CreateConVar( "ze_zknockback", '7', {FCVAR_REPLICATED}, "Knockback multiplier for zombies." )
 GM.CVars.ZombieRatio 	= CreateConVar( "ze_zombie_ratio", 7, {FCVAR_REPLICATED}, "Ratio of zombies to spawn." )
+GM.CVars.ZHealthRegen   = CreateConVar( "ze_zhealth_regen", 0, {FCVAR_REPLICATED}, "Whether or not zombie health should regenerate." )
 
 function GM:ZombieSpawn( ply )
 
@@ -135,13 +136,15 @@ hook.Add("Think", "ZombieThink", function()
 			if ply.NextMoan and ply.NextMoan < CurTime() then
 				ply:ZMoan()
 			end
-			
+
 			-- Health regeneration
-			local health = ply:Health()
-			if ply.NextHealthRegen < CurTime() && health < ply:GetMaxHealth() then
-				local newhealth = math.Clamp( health + math.random(50, 150), 0, ply:GetMaxHealth() )
-				ply:SetHealth( newhealth )
-				ply.NextHealthRegen = CurTime() + math.random(2,3)
+			if GAMEMODE.CVars.ZHealthRegen:GetBool() then
+				local health = ply:Health()
+				if ply.NextHealthRegen < CurTime() && health < ply:GetMaxHealth() then
+					local newhealth = math.Clamp( health + math.random(50, 150), 0, ply:GetMaxHealth() )
+					ply:SetHealth( newhealth )
+					ply.NextHealthRegen = CurTime() + math.random(2,3)
+				end
 			end
 			
 			-- Weapon check
