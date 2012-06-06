@@ -92,11 +92,29 @@ function GM:MapMessages()
 
 end
 
+local function MapMessageParser(str)
+	local mapmess = string.lower(str)
+	local seconds = {"seconds", "second", "secs", "sec", "s"}
+	local minutes = {"minutes", "minute", "mins", "min", "m"}
+	local parsed = nil
+	for k,v in pairs(seconds) do
+		if string.find(mapmess, '%d+%s' .. v) != nil then
+			parsed = string.sub(mapmess, string.find(mapmess, '%d+%s*' .. v))
+		end
+	end
+	if parsed == nil then
+		return 5
+	else
+		return string.sub(parsed, string.find(parsed, '%d+'))
+	end
+end
+
 function AddMapMessage( um )
 	local msg	= {}
-	msg.text	= um:ReadString()
+	local umStr = um:ReadString()
+	msg.text	= umStr
 	msg.time 	= SysTime()
-	msg.len		= 10
+	msg.len		= MapMessageParser(umStr)
 	msg.velx	= -5
 	msg.vely	= 0
 	msg.x		= ScrW() + 200
