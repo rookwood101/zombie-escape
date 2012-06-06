@@ -263,7 +263,7 @@ end
 	Suicide is disabled
 ---------------------------------------------------------*/
 function GM:CanPlayerSuicide(ply)
-	return ply:IsZombie() and !ply:IsMotherZombie()
+	return ply:IsHuman() or ( ply:IsZombie() and !ply:IsMotherZombie() )
 end
 
 /*---------------------------------------------------------
