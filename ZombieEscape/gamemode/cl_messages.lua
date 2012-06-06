@@ -26,6 +26,11 @@ local MapMessages = {}
 local colBar
 local colBarDark = Color(100,100,100,255)
 
+function CleanupMM()
+	MapMessages = {}
+end
+usermessage.Hook("RoundChange", CleanupMM)
+
 function GM:MapMessages()
 
 	for k, v in pairs( MapMessages ) do
@@ -100,6 +105,13 @@ local function MapMessageParser(str)
 	for k,v in pairs(seconds) do
 		if string.find(mapmess, '%d+%s' .. v) != nil then
 			parsed = string.sub(mapmess, string.find(mapmess, '%d+%s*' .. v))
+		end
+	end
+	if parsed == nil then
+		for k,v in pairs(minutes) do
+			if string.find(mapmess, '%d+%s' .. v) != nil then
+				parsed = string.sub(mapmess, string.find(mapmess, '%d+%s*' .. v))
+			end
 		end
 	end
 	if parsed == nil then

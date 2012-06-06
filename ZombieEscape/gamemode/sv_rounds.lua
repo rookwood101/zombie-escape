@@ -167,6 +167,8 @@ function GM:RoundStart()
 	end
 	
 	gamemode.Call("OnRoundChange")
+	umsg.Start("RoundChange")
+	umsg.End()
 	
 	self:SendWinner(-1,true) -- Reset winner
 	
