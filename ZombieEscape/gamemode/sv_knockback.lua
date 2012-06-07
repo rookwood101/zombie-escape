@@ -57,8 +57,6 @@ function GM:ScalePlayerDamage( ply, hitgroup, dmginfo )
 	if IsValid(ply) && ply:IsPlayer() && IsValid(inflictor) && inflictor:IsPlayer() && ply:IsZombie() && bPassesDmgFilter then
 	
 		-- Store some info for GM.PlayerHurt
-		ply.OldVelocity = ply:GetVelocity()
-		
 		local weap = inflictor:GetActiveWeapon()
 		if IsValid(weap) then
 			ply.LastDmg = { hitgroup, weap:GetClass(), inflictor:GetPos() }
@@ -94,18 +92,15 @@ function GM:PlayerHurt( ply, attacker, healthleft, healthtaken )
 
 		local weapMult = self.Multipliers.Weapons[ply.LastDmg[2]]
 		weapMult = weapMult && weapMult || 1.0
-		
-		ply.KnockbackMultiplier = ply.KnockbackMultiplier and ply.KnockbackMultiplier or 1.0
 
 		-- Knockback effects = (multiplier * weapon multiplier * hitgroup multiplier) * damage delt
-		local knockback = (ply.KnockbackMultiplier * weapMult * hitgroupMult) * healthtaken
+		local knockback = (ply:GetKnockbackMultiplier() * weapMult * hitgroupMult) * healthtaken
 		
 		-- Apply force
 		local startvec, endvec = ply.LastDmg[3], ply:GetPos()
 		local vec = (endvec-startvec):Normalize()*knockback
 		
-		--print("Knockback: " .. knockback .. "\tVelocity: " .. tostring(vec) .."\n\n")
-		ply:SetLocalVelocity(ply.OldVelocity + vec)
+		ply:SetVelocity(vec) -- Add knockback force
 		ply.LastDmg = nil
 		
 	end
