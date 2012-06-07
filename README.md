@@ -35,6 +35,7 @@ Although it's suggested to keep these settings at their default, you may change 
 * ze_zspawn_timelimit <seconds> "Time from the start of the round to allow late zombie spawning."
 * ze_zknockback <float> "Knockback multiplier for zombies."
 * ze_zmotherknockback <float> "Knockback multiplier for mother zombies."
+* ze_propknockback <float> "Force multiplier for props when shot."
 
 
 #### Developer Support ####

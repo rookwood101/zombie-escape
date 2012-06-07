@@ -1,4 +1,4 @@
-GM.CVars.PropKnockback = CreateConVar( "ze_propForceMultiplier", '2.0', {FCVAR_REPLICATED}, "Force multiplier for props when shot." )
+GM.CVars.PropKnockback = CreateConVar( "ze_propknockback", '2.0', {FCVAR_REPLICATED}, "Force multiplier for props when shot." )
 
 /*
 	GAMEMODE.Multipliers

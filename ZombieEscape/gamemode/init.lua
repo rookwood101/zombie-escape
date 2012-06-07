@@ -312,7 +312,9 @@ end
 
 
 /*---------------------------------------------------------
-	Zombies should not pickup any weapons
+	Zombie damage notes
+	Zombie grenade fix
+	Prop knockback effects
 ---------------------------------------------------------*/
 function GM:EntityTakeDamage( ent, inflictor, attacker, amount, dmginfo )
 	if IsValid(ent) and IsValid(inflictor) then
