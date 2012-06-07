@@ -64,5 +64,5 @@ Place the 'ZombieEscape' folder inside 'garrysmod/gamemodes'
 
 
 #### Links ####
-[Facepunch thread](http://www.facepunch.com/showthread.php?t=1187359)
-[Zombie Escape Wiki](http://zombieescape.wikia.com/wiki/Zombie_Escape_Wiki) (for CS:S)
+* [Facepunch thread](http://www.facepunch.com/showthread.php?t=1187359)
+* [Zombie Escape Wiki](http://zombieescape.wikia.com/wiki/Zombie_Escape_Wiki) (for CS:S)
