@@ -2,7 +2,7 @@ GM.CVars.ZSpeed 		= CreateConVar( "ze_zombie_speed", 250, {FCVAR_REPLICATED}, "Z
 GM.CVars.ZHealthMin 	= CreateConVar( "ze_zhealth_min", 3000, {FCVAR_REPLICATED}, "Minumum health for a zombie to receive." )
 GM.CVars.ZHealthMax 	= CreateConVar( "ze_zhealth_max", 3500, {FCVAR_REPLICATED}, "Maximum health for a zombie to receive." )
 GM.CVars.ZKnockback		= CreateConVar( "ze_zknockback", '7.0', {FCVAR_REPLICATED}, "Knockback multiplier for zombies." )
-GM.CVars.ZMotherKnockback 	= CreateConVar( "ze_zmotherknockback", '6.0', {FCVAR_REPLICATED}, "Knockback multiplier for zombies." )
+GM.CVars.ZMotherKnockback 	= CreateConVar( "ze_zmotherknockback", '6.0', {FCVAR_REPLICATED}, "Knockback multiplier for mother zombies." )
 GM.CVars.ZombieRatio 	= CreateConVar( "ze_zombie_ratio", 7, {FCVAR_REPLICATED}, "Ratio of zombies to spawn." )
 GM.CVars.ZHealthRegen   = CreateConVar( "ze_zhealth_regen", 0, {FCVAR_REPLICATED}, "Whether or not zombie health should regenerate." )
 

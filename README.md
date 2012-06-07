@@ -20,13 +20,12 @@ Zombie Escape is a popular gamemode for Counter-Strike: Source, now available fo
 
 
 #### Settings ####
-* ze_max_rounds <number> "Maximum amount of rounds played prior to map switch"
 Although it's suggested to keep these settings at their default, you may change them if you feel necessary.
+* ze_max_rounds <number> "Maximum amount of rounds played prior to map switch"
 * ze_ztimer_min <seconds> "Minimum time from the start of the round until picking the mother zombie(s)."
 * ze_ztimer_max <seconds> "Maximum time from the start of the round until picking the mother zombie(s)."
 * ze_zhealth_min <number>
 * ze_zhealth_max <number>
-* ze_zhealth_regen <0/1> "Whether zombie health should regenerate over time or not."
 * ze_ammo <number> "Amount of ammo to give humans."
 * ze_buyzone <0/1> "Whether or not players may purchase weapons only in a buyzone."
 * ze_human_speed <number>
@@ -34,6 +33,8 @@ Although it's suggested to keep these settings at their default, you may change 
 * ze_zombie_ratio <number>
 * ze_zspawn_latejoin <0/1> "Allow late joining as zombie."
 * ze_zspawn_timelimit <seconds> "Time from the start of the round to allow late zombie spawning."
+* ze_zknockback <float> "Knockback multiplier for zombies."
+* ze_zmotherknockback <float> "Knockback multiplier for mother zombies."
 
 
 #### Developer Support ####
@@ -54,7 +55,7 @@ Included with the gamemode is a custom tool, which I originally created for Sass
 
 
 #### Downloads ####
-([Pre-patched Map Pack](http://www.solidfiles.com/d/47922cc034/) 555MB Torrent
+Pre-patched Map Pack [Part 1](http://www.solidfiles.com/d/3c95902d0b/) [2](http://www.solidfiles.com/d/d0d880550c/) [3](http://www.solidfiles.com/d/8c31ceb6c4/) [4](http://www.solidfiles.com/d/e3f4ff9d50/) [5](http://www.solidfiles.com/d/8e3f3c583f/) [6](http://www.solidfiles.com/d/e55e522ec0/)
 
 
 #### Installation ####
@@ -63,9 +64,5 @@ Place the 'ZombieEscape' folder inside 'garrysmod/gamemodes'
 
 
 #### Links ####
-
-Facepunch thread
-[pending]
-
-Zombie Escape Wiki (for CS:S)
-http://zombieescape.wikia.com/wiki/Zombie_Escape_Wiki
+[Facepunch thread](http://www.facepunch.com/showthread.php?t=1187359)
+[Zombie Escape Wiki](http://zombieescape.wikia.com/wiki/Zombie_Escape_Wiki) (for CS:S)
