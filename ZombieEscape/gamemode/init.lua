@@ -22,6 +22,7 @@ include('sv_humans.lua')
 include('sv_knockback.lua')
 include('sv_mapchange.lua')
 include('sv_messages.lua')
+include('sv_physics.lua')
 include('sv_rounds.lua')
 include('sv_trigger.lua')
 include('sv_weapon.lua')
@@ -310,14 +311,22 @@ function GM:PlayerCanPickupWeapon(ply, weapon)
 
 end
 
+/*
+	Calls some functions based on entity damage
+*/
+function GM:EntityTakeDamage( ent, inflictor, attacker, amount, dmginfo )
+	DisplayDamage(ent, inflictor, attacker, amount, dmginfo)
+	PropPhysics(ent, inflictor, attacker, amount, dmginfo)
+end
+
 
 /*---------------------------------------------------------
 	Sends damage done to zombie to player for
 	displaying on screen, also checks for zombies
 	infecting via grenades
 ---------------------------------------------------------*/
-function GM:EntityTakeDamage( ent, inflictor, attacker, amount, dmginfo )
-	
+
+function DisplayDamage(ent, inflictor, attacker, amount, dmginfo)
 	if !IsValid(ent) or !ent:IsPlayer() then return end
 	
 	if IsValid(inflictor) then
@@ -347,7 +356,6 @@ function GM:EntityTakeDamage( ent, inflictor, attacker, amount, dmginfo )
 		end
 
 	end
-	
 end
 
 /*---------------------------------------------------------
